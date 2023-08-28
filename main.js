@@ -1,31 +1,3 @@
-/*
-Inicio
-    comenzarJuego
-        reiniciarPuntos
-        reiniciarColores
-        asignarColores
-        habilitarInputUsuario
-        manejarJuego
-
-    manejarJuego
-        1er clickUsuario -> bloquearCuadro
-        2do clickUsuario -> bloquearCuadro
-
-        deshabilitarInputUsuario
-
-        compararCuadros ?
-            Si -> aumentarPuntaje
-                estanTodosOcultos ?
-                    Si -> deshabilitarInputUsuario
-                       -> terminarJuego
-                    No -> habilitarInputUsuario
-                       -> manejarJuego
-            No -> habilitarInputUsuario
-               -> continuarJuego
-
-PD (Sobre habilitarInputUsuario): Chequear si es mejor colocarlo al principio de manejarJuego o directamente como está mostrada en el pseudo-código
-*/
-
 let cuadrosUsuario = [];
 
 const $botonJugar = document.querySelector("#boton-jugar");
