@@ -54,12 +54,9 @@ function compararCuadros() {
     console.log(clasesCuadro1, clasesCuadro2);
     const sonIguales = clasesCuadro1 === clasesCuadro2;
 
-    if (sonIguales) {
-        alert("Correcto!");
-    } else {
-        alert("Incorrecto!");
+    if (!sonIguales) {
         ocultarCuadros();
-    }
+    } 
 
     cuadrosUsuario = [];
 }
