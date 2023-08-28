@@ -34,6 +34,7 @@ $botonJugar.onclick = comenzarJuego;
 function comenzarJuego() {
     desasignarColores();
     asignarColores();
+    ocultarCuadros();
     habilitarInputUsuario();
 }
 
@@ -65,9 +66,12 @@ function habilitarInputUsuario() {
 function manejarInputUsuario(e) {
     const $cuadro = e.target;
     cuadrosUsuario.push($cuadro);
+    mostrarCuadros($cuadro);
 
     if (cuadrosUsuario.length === 2) {
-        compararCuadros();
+        setTimeout(() => {
+            compararCuadros();
+        }, 1000);
     }
 }
 
@@ -82,7 +86,26 @@ function compararCuadros() {
         alert("Correcto!");
     } else {
         alert("Incorrecto!");
+        ocultarCuadros();
     }
 
     cuadrosUsuario = [];
+}
+
+function ocultarCuadros() {
+    const $cuadros = document.querySelectorAll(".cuadro");
+
+    $cuadros.forEach($cuadro => {
+        $cuadro.classList += ` tapada`;
+    });
+}
+
+function ocultarCuadro() {
+    for (let i = 0; i < cuadrosUsuario.length; i++) {
+        cuadrosUsuario[i].classList.add("tapada");
+    }
+}
+
+function mostrarCuadros($cuadro) {
+    $cuadro.classList.remove("tapada");
 }
