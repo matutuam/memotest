@@ -55,7 +55,8 @@ function compararCuadros() {
     const sonIguales = clasesCuadro1 === clasesCuadro2;
 
     if (!sonIguales) {
-        ocultarCuadros();
+        ocultarCuadro(cuadrosUsuario[0]);
+        ocultarCuadro(cuadrosUsuario[1]);
     } 
 
     cuadrosUsuario = [];
