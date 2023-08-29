@@ -39,3 +39,7 @@ body {
     background-color: rgb(207, 205, 205);
     transition: 0.5s all;
 }
+
+.oculto {
+    display: none;
+}

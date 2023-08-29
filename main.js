@@ -1,4 +1,5 @@
-let cuadrosUsuario = [];
+let cuadrosElegidos = [];
+let cuadrosCorrectos = [];
 
 const $botonJugar = document.querySelector("#boton-jugar");
 $botonJugar.onclick = comenzarJuego;
@@ -7,6 +8,7 @@ function comenzarJuego() {
     desasignarColores();
     asignarColores();
     ocultarCuadros();
+    ocultarAlertaGanador();
     habilitarInputUsuario();
 }
 
@@ -37,10 +39,10 @@ function habilitarInputUsuario() {
 
 function manejarInputUsuario(e) {
     const $cuadro = e.target;
-    cuadrosUsuario.push($cuadro);
+    cuadrosElegidos.push($cuadro);
     mostrarCuadros($cuadro);
 
-    if (cuadrosUsuario.length === 2) {
+    if (cuadrosElegidos.length === 2) {
         setTimeout(() => {
             compararCuadros();
         }, 1000);
@@ -48,18 +50,26 @@ function manejarInputUsuario(e) {
 }
 
 function compararCuadros() {
-    const clasesCuadro1 = Array.from(cuadrosUsuario[0].classList).join(' ');
-    const clasesCuadro2 = Array.from(cuadrosUsuario[1].classList).join(' ');
+    const clasesCuadro1 = Array.from(cuadrosElegidos[0].classList).join(' ');
+    const clasesCuadro2 = Array.from(cuadrosElegidos[1].classList).join(' ');
 
     console.log(clasesCuadro1, clasesCuadro2);
     const sonIguales = clasesCuadro1 === clasesCuadro2;
 
     if (!sonIguales) {
-        ocultarCuadro(cuadrosUsuario[0]);
-        ocultarCuadro(cuadrosUsuario[1]);
-    } 
+        ocultarCuadro(cuadrosElegidos[0]);
+        ocultarCuadro(cuadrosElegidos[1]);
+    } else {
+        cuadrosCorrectos.push(cuadrosElegidos[0], cuadrosElegidos[1]);
+    }
 
-    cuadrosUsuario = [];
+    if (cuadrosCorrectos.length === 8) {
+        mostrarAlertaGanador();
+
+        cuadrosCorrectos = [];
+    }
+
+    cuadrosElegidos = [];
 }
 
 function ocultarCuadros() {
@@ -71,11 +81,19 @@ function ocultarCuadros() {
 }
 
 function ocultarCuadro() {
-    for (let i = 0; i < cuadrosUsuario.length; i++) {
-        cuadrosUsuario[i].classList.add("tapada");
+    for (let i = 0; i < cuadrosElegidos.length; i++) {
+        cuadrosElegidos[i].classList.add("tapada");
     }
 }
 
 function mostrarCuadros($cuadro) {
     $cuadro.classList.remove("tapada");
+}
+
+function mostrarAlertaGanador() {
+    document.querySelector("#alerta").classList.remove("oculto");
+}
+
+function ocultarAlertaGanador() {
+    document.querySelector("#alerta").classList.add("oculto");
 }
