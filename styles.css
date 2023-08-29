@@ -3,30 +3,11 @@ body {
     margin: 0;
 }
 
-#estado {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(207, 205, 205);
-    margin-bottom: 20px;
-}
-
-p {
-    margin: 0;
-    padding: 0;
-    text-align: left;
-}
-
-#seccion-puntos {
-    height: 50px;
-    width: 120px;
-    margin: 15px;
-}
-
 #boton-jugar {
     height: 50px;
     width: 80px;
     margin: 15px;
-    background-color: white;
+    background-color: gray;
 }
 
 .cuadro {
