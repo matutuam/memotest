@@ -63,8 +63,6 @@ function manejarInputUsuario(e) {
 function compararCuadros() {
     const clasesCuadro1 = Array.from(cuadrosElegidos[0].classList).join(' ');
     const clasesCuadro2 = Array.from(cuadrosElegidos[1].classList).join(' ');
-
-    console.log(clasesCuadro1, clasesCuadro2);
     const sonIguales = clasesCuadro1 === clasesCuadro2;
 
     if (!sonIguales) {
