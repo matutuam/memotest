@@ -37,14 +37,25 @@ function habilitarInputUsuario() {
     });
 }
 
+function deshabilitarInputUsuario() {
+    const $cuadros = document.querySelectorAll(".cuadro");
+
+    $cuadros.forEach($cuadro => {
+        $cuadro.removeEventListener("click", manejarInputUsuario);
+    });
+}
+
 function manejarInputUsuario(e) {
     const $cuadro = e.target;
     cuadrosElegidos.push($cuadro);
     mostrarCuadros($cuadro);
 
     if (cuadrosElegidos.length === 2) {
+        deshabilitarInputUsuario();
+
         setTimeout(() => {
             compararCuadros();
+            habilitarInputUsuario();
         }, 1000);
     }
 }
