@@ -1,6 +1,8 @@
 let cuadrosElegidos = [];
 let cuadrosCorrectos = [];
 
+const COLORES = ["verde", "rojo", "azul", "amarillo"];
+
 const $botonJugar = document.querySelector("#boton-jugar");
 $botonJugar.onclick = comenzarJuego;
 
@@ -14,7 +16,7 @@ function comenzarJuego() {
 
 function asignarColores() {
     const $cuadros = document.querySelectorAll(".cuadro");
-    const listaColores = ["verde", "rojo", "amarillo", "azul", "verde", "rojo", "amarillo", "azul"].sort( () => .5 - Math.random() );
+    const listaColores = [...COLORES, ...COLORES].sort(() => 0.5 - Math.random());
 
     $cuadros.forEach(function($cuadro, i) {
         $cuadro.classList += ` ${listaColores[i]}`;
