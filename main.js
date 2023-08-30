@@ -96,14 +96,12 @@ function ocultarCuadros() {
     const $cuadros = document.querySelectorAll(".cuadro");
 
     $cuadros.forEach($cuadro => {
-        $cuadro.classList += ` tapada`;
+        $cuadro.classList.add("tapada");
     });
 }
 
-function ocultarCuadro() {
-    for (let i = 0; i < cuadrosElegidos.length; i++) {
-        cuadrosElegidos[i].classList.add("tapada");
-    }
+function ocultarCuadro($cuadro) {
+    $cuadro.classList.add("tapada");
 }
 
 function mostrarCuadros($cuadro) {
