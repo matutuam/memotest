@@ -72,9 +72,7 @@ function manejarInputUsuario(e) {
 }
 
 function compararCuadros() {
-    const clasesCuadro1 = Array.from(cuadrosElegidos[0].classList).join(' ');
-    const clasesCuadro2 = Array.from(cuadrosElegidos[1].classList).join(' ');
-    const sonIguales = clasesCuadro1 === clasesCuadro2;
+    const sonIguales = cuadrosElegidos[0].className === cuadrosElegidos[1].className;
 
     if (!sonIguales) {
         ocultarCuadro(cuadrosElegidos[0]);
