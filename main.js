@@ -56,7 +56,7 @@ function manejarInputUsuario(e) {
         setTimeout(() => {
             compararCuadros();
             habilitarInputUsuario();
-        }, 1000);
+        }, 500);
     }
 }
 
