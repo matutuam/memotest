@@ -45,10 +45,19 @@ function deshabilitarInputUsuario() {
     });
 }
 
+function habilitarCuadro($cuadro) {
+    $cuadro.addEventListener("click", manejarInputUsuario);
+}
+
+function deshabilitarCuadro($cuadro) {
+    $cuadro.removeEventListener("click", manejarInputUsuario);
+}
+
 function manejarInputUsuario(e) {
     const $cuadro = e.target;
     cuadrosElegidos.push($cuadro);
     mostrarCuadros($cuadro);
+    deshabilitarCuadro($cuadro);
 
     if (cuadrosElegidos.length === 2) {
         deshabilitarInputUsuario();
@@ -68,6 +77,8 @@ function compararCuadros() {
     if (!sonIguales) {
         ocultarCuadro(cuadrosElegidos[0]);
         ocultarCuadro(cuadrosElegidos[1]);
+        habilitarCuadro(cuadrosElegidos[0]);
+        habilitarCuadro(cuadrosElegidos[1]);
     } else {
         cuadrosCorrectos.push(cuadrosElegidos[0], cuadrosElegidos[1]);
     }
