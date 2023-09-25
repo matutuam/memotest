@@ -1,0 +1,45 @@
+body {
+    text-align: center;
+    margin: 0;
+}
+
+#boton-jugar {
+    height: 50px;
+    width: 80px;
+    margin: 15px;
+    background-color: gray;
+}
+
+.cuadro {
+    height: 150px;
+    width: 300px;
+    margin: 5px;
+    padding: 0;
+    display: inline-block;
+    border: 2px solid black;
+}
+
+.verde {
+    background-color: green;
+}
+
+.rojo {
+    background-color: red;
+}
+
+.amarillo {
+    background-color: yellow;
+}
+
+.azul {
+    background-color: blue;
+}
+
+.tapada {
+    background-color: rgb(207, 205, 205);
+    transition: 0.5s all;
+}
+
+.oculto {
+    display: none;
+}
